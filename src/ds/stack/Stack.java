@@ -13,8 +13,12 @@ public class Stack {
     }
 
     public void push(long j){
-        top++;
-        stackArray[top] = j;
+        try {
+            top++;
+            stackArray[top] = j;
+        } catch (ArrayIndexOutOfBoundsException ex){
+            ex.printStackTrace();
+        }
     }
 
     public long pop(){
