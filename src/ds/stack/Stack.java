@@ -18,13 +18,21 @@ public class Stack {
             stackArray[top] = j;
         } catch (ArrayIndexOutOfBoundsException ex){
             ex.printStackTrace();
+            System.out.println("Stack is full!");
         }
     }
 
     public long pop(){
-        int oldTop = top;
-        top--;
-        return stackArray[oldTop];
+        try {
+            int oldTop = top;
+            top--;
+            return stackArray[oldTop];
+        } catch (ArrayIndexOutOfBoundsException ex){
+            ex.printStackTrace();
+            System.out.println("No more items in the stack!");
+        }
+
+        return -1;
     }
 
     public long peak(){
