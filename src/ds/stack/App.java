@@ -1,18 +1,33 @@
 package ds.stack;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args){
-        Stack theStack = new Stack(10);
+        Scanner s = new Scanner(System.in);
+        String word = null;
 
-        theStack.push(20);
-        theStack.push(30);
-        theStack.push(40);
-        theStack.push(50);
+        System.out.print("Enter word: ");
+        word = s.nextLine();
+        System.out.println("The word is now: " + reverseString(word));
 
-        while(!theStack.isEmpty()){
-            long value = theStack.pop();
+    }
 
-            System.out.println(value);
+    public static String reverseString(String st){
+        Stack theStack = new Stack(st);
+
+        char[] charArray = new char[st.length()];
+
+        for(int i = 0; i < st.length(); i++){
+            theStack.push(st.charAt(i));
         }
+
+        for(int i = 0; i < charArray.length; i++){
+            charArray[i] = theStack.pop();
+        }
+
+        st = String.copyValueOf(charArray);
+
+        return st;
     }
 }
